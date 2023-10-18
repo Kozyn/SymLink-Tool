@@ -86,5 +86,10 @@ namespace SymLink_Tool
             label2.Text = "Mode: FOLDER";
             label4.Text = "";
         }
+
+        private void toolTip1_Popup_1(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }

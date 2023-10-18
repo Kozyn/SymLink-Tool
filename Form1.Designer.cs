@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -39,6 +40,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -50,6 +52,7 @@
             this.label1.Size = new System.Drawing.Size(90, 32);
             this.label1.TabIndex = 13;
             this.label1.Text = "Name: ";
+            this.toolTip1.SetToolTip(this.label1, "The Name of the generated Symlink");
             // 
             // textBox3
             // 
@@ -58,6 +61,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(114, 27);
             this.textBox3.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.textBox3, "The Name of the generated Symlink");
             // 
             // button3
             // 
@@ -68,8 +72,10 @@
             this.button3.Size = new System.Drawing.Size(154, 92);
             this.button3.TabIndex = 11;
             this.button3.Text = "Generate Symlink";
+            this.toolTip1.SetToolTip(this.button3, "Attempts to create a SymLink in the LOCATION, \r\nPointing to the item selected in " +
+        "POINTS TO, called NAME");
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(button3_Click);
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -79,8 +85,9 @@
             this.button2.Size = new System.Drawing.Size(86, 31);
             this.button2.TabIndex = 8;
             this.button2.Text = "Points To:";
+            this.toolTip1.SetToolTip(this.button2, "Selects the File or Folder the Symlink will point to");
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(button2_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -90,8 +97,9 @@
             this.button1.Size = new System.Drawing.Size(86, 31);
             this.button1.TabIndex = 7;
             this.button1.Text = "Location:";
+            this.toolTip1.SetToolTip(this.button1, "Selects the Location that the SymLink will be generated in");
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -111,6 +119,7 @@
             this.button4.Size = new System.Drawing.Size(124, 46);
             this.button4.TabIndex = 17;
             this.button4.Text = "FILE Mode";
+            this.toolTip1.SetToolTip(this.button4, "Changes the SymLink to point to a File");
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -122,6 +131,7 @@
             this.button5.Size = new System.Drawing.Size(145, 46);
             this.button5.TabIndex = 18;
             this.button5.Text = "FOLDER Mode";
+            this.toolTip1.SetToolTip(this.button5, "Changes the SymLink to point to a Folder");
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -130,7 +140,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(93, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.Size = new System.Drawing.Size(0, 20);
             this.label3.TabIndex = 19;
             // 
             // label4
@@ -138,14 +148,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(93, 102);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
+            this.label4.Size = new System.Drawing.Size(0, 20);
             this.label4.TabIndex = 20;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 288);
+            this.ClientSize = new System.Drawing.Size(425, 282);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button5);
@@ -163,7 +177,6 @@
             this.Text = "SymLink Tool";
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.Load += Form1_Load;
 
         }
 
@@ -179,5 +192,6 @@
         private Button button5;
         private Label label3;
         private Label label4;
+        private ToolTip toolTip1;
     }
 }
