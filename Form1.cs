@@ -5,8 +5,6 @@ namespace SymLink_Tool
 {
     public partial class Form1 : Form
     {
-
-        static Chilkat.FileAccess? fac;
         static Modes mode = Modes.FILE;
 
         public Form1()
@@ -16,7 +14,6 @@ namespace SymLink_Tool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            fac = new Chilkat.FileAccess();
             label2.Text = "Mode: FILE";
         }
 
@@ -63,6 +60,8 @@ namespace SymLink_Tool
             location += "\\" + name;
 
             MessageBox.Show(location);
+
+            Chilkat.FileAccess fac = new Chilkat.FileAccess();
 
             if (!fac.SymlinkCreate(target, location))
             {
